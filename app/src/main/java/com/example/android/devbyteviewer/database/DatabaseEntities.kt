@@ -21,7 +21,7 @@ import androidx.room.Entity
 import androidx.room.PrimaryKey
 import com.example.android.devbyteviewer.domain.Video
 
-@Entity(tableName = "database_video_table")
+@Entity(tableName = "video_table")
 data class DatabaseVideo constructor(
         @PrimaryKey
         var url: String,
