@@ -24,6 +24,8 @@ import com.example.android.devbyteviewer.network.Network
 import com.example.android.devbyteviewer.network.asDatabaseModel
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
+import timber.log.Timber
+import java.lang.Exception
 
 class VideosRepository(private val database: VideoDatabase) {
     val videos = Transformations.map(database.videoDao.getAllVideos()) {
@@ -33,8 +35,12 @@ class VideosRepository(private val database: VideoDatabase) {
     suspend fun refreshVideos() {
         withContext(Dispatchers.IO) {
 //            var videoPlayList = Network.devbytes.getPlaylist().await()
-            var videoPlayList = Network.devbytes.getPlaylist()
-            database.videoDao.insert(*videoPlayList.asDatabaseModel())
+            try {
+                var videoPlayList = Network.devbytes.getPlaylist()
+                database.videoDao.insert(*videoPlayList.asDatabaseModel())
+            } catch (e: Exception) {
+                Timber.i("error: ${e.message}")
+            }
         }
     }
 }
