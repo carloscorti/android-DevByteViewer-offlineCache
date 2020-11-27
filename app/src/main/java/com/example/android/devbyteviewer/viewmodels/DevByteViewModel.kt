@@ -22,10 +22,7 @@ import androidx.lifecycle.*
 import com.example.android.devbyteviewer.domain.Video
 import com.example.android.devbyteviewer.network.Network
 import com.example.android.devbyteviewer.network.asDomainModel
-import kotlinx.coroutines.CoroutineScope
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.SupervisorJob
-import kotlinx.coroutines.launch
+import kotlinx.coroutines.*
 import java.io.IOException
 
 /**
@@ -74,7 +71,8 @@ class DevByteViewModel(application: Application) : AndroidViewModel(application)
      */
     private fun refreshDataFromNetwork() = viewModelScope.launch {
         try {
-            val playlist = Network.devbytes.getPlaylist().await()
+//            val playlist = Network.devbytes.getPlaylist().await()
+            val playlist = Network.devbytes.getPlaylist()
             _playlist.postValue(playlist.asDomainModel())
         } catch (networkError: IOException) {
             // Show an infinite loading spinner if the request fails

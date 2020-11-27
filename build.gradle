@@ -31,7 +31,7 @@ buildscript {
         version_room = "2.2.5"
         version_appcompat = "1.2.0"
         version_fragment = "1.0.0"
-        version_retrofit = "2.5.0"
+        version_retrofit = "2.6.0"
         version_kotlin_coroutines = "1.1.0"
         version_moshi = "1.8.0"
         version_glide = "4.8.0"
