@@ -34,7 +34,6 @@ class VideosRepository(private val database: VideoDatabase) {
 
     suspend fun refreshVideos() {
         withContext(Dispatchers.IO) {
-//            var videoPlayList = Network.devbytes.getPlaylist().await()
             try {
                 var videoPlayList = Network.devbytes.getPlaylist()
                 database.videoDao.insert(*videoPlayList.asDatabaseModel())

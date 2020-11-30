@@ -64,26 +64,6 @@ class DevByteViewModel(application: Application) : AndroidViewModel(application)
         }
     }
 
-
-//    init {
-//        refreshDataFromNetwork()
-//    }
-
-//    /**
-//     * Refresh data from network and pass it via LiveData. Use a coroutine launch to get to
-//     * background thread.
-//     */
-//    private fun refreshDataFromNetwork() = viewModelScope.launch {
-//        try {
-////            val playlist = Network.devbytes.getPlaylist().await()
-//            val playlist = Network.devbytes.getPlaylist()
-//            _playlist.postValue(playlist.asDomainModel())
-//        } catch (networkError: IOException) {
-//            // Show an infinite loading spinner if the request fails
-//            // challenge exercise: show an error to the user if the network request fails
-//        }
-//    }
-
     /**
      */
 
